@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+.env
+
+# Spark/Hadoop
+hadoop_home/
+.spark-stubs/
+spark-warehouse/
+
+# Project Specific Zones (Local storage)
+landing_zone/
+formatted_zone/
+exploitation_zone/
+history/
+
+# Data Sources (Not uploaded to GitHub)
+source_datasets/
+*.json
+*.csv
+
+# IDEs
+.vscode/
+.idea/
+
+# Configuration/State (Local)
+pipeline_state.yaml
+config_local.yaml

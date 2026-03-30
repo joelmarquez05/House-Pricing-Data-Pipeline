@@ -1,0 +1,66 @@
+# BDA Project Configuration
+# All paths are relative to the project root directory
+
+paths:
+  source_dir: "source_datasets"
+  landing_dir: "landing_zone"
+  exploitation_dir: "exploitation_zone"
+  history_dir: "history"
+  scripts_dir: "scripts"
+  venv_subpath: "venv/bin/python"
+  airflow_dags_dir: "airflow/dags"
+
+mongodb:
+  uri: "mongodb://localhost:27017"
+  database: "bcn_housing"
+
+datasets:
+  - name: "idealista"
+    subfolder: "idealista"
+    format: "json"
+    options:
+      multiline: "true"
+    date_type: "daily"
+    regex: "(\\d{4})_(\\d{2})_(\\d{2})"
+
+  - name: "income"
+    subfolder: "income"
+    format: "csv"
+    options:
+      header: "true"
+      delimiter: ","
+    date_type: "yearly"
+    regex: "/(\\d{4})_"
+
+  - name: "unemployment"
+    subfolder: "unemployment"
+    format: "json"
+    options:
+      multiline: "true"
+    date_type: "yearly"
+    regex: "/(\\d{4})_"
+
+  - name: "density"
+    subfolder: "density"
+    format: "json"
+    options:
+      multiline: "true"
+    date_type: "yearly_from_column"
+    year_column: "Any"
+    specific_file: "density_opendata_neighborhood_2.json"
+
+  - name: "lookup"
+    subfolder: "lookup_tables"
+    format: "csv"
+    options:
+      header: "true"
+      delimiter: ","
+    date_type: null
+
+mlflow:
+  experiment_name: "bcn_housing_size_prediction"
+  mlruns_dir: "mlruns"
+
+training:
+  seed: 1
+  years_window: 5
