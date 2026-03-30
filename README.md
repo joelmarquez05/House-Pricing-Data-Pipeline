@@ -9,7 +9,7 @@
 
 ## Overview
 
-This repository features a robust, enterprise-grade data pipeline designed to automate the ingestion, processing, and orchestration of high-volume real-estate data. By leveraging a Medallion Architecture, the pipeline transforms raw data from Idealista and Barcelona Open Data into actionable insights for predictive analytics and machine learning models.
+This repository features a data pipeline designed to automate the ingestion, processing, and orchestration of high-volume real-estate data. By leveraging a Medallion Architecture, the pipeline transforms raw data from Idealista and Barcelona Open Data into actionable insights for predictive analytics and machine learning models.
 
 > [!IMPORTANT]
 > **Data Privacy & Storage:** The `source_datasets/` directory contains raw JSON/CSV files from **Idealista**. Due to their size and privacy constraints, these datasets are **not uploaded to this repository**. You must provide your own data sources following the schema defined in `config.yaml`.
