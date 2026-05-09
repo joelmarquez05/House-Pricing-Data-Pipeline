@@ -33,32 +33,6 @@ Our pipeline integrates:
 
 The pipeline follows a structured data flow, ensuring data quality and reliability at every stage:
 
-```mermaid
-graph LR
-    subgraph "Raw Sources"
-        ID[Idealista JSON]
-        BCN[BCN Open Data]
-    end
-
-    subgraph "Data Pipeline (Apache Spark + Airflow)"
-        LZ[Landing Zone: Raw Parquet]
-        FZ[Formatted Zone: MongoDB]
-        EZ[Exploitation Zone: Delta Lake]
-    end
-
-    subgraph "Machine Learning"
-        TR[Training: XGBoost/RF]
-        MF[Tracking: MLflow]
-    end
-
-    ID --> LZ
-    BCN --> LZ
-    LZ --> FZ
-    FZ --> EZ
-    EZ --> TR
-    TR --> MF
-```
-
 1.  **Landing Zone**: Ingests raw data from `source_datasets`, partitioning it by `year/month/day` for incremental processing.
 2.  **Formatted Zone**: Cleanses, normalizes, and stores the data in **MongoDB**, making it ready for structured queries.
 3.  **Exploitation Zone**: Consolidates multiple sources into optimized **Delta Lake** tables, designed for high-performance ML training.
